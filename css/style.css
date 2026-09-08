@@ -39,6 +39,9 @@ header,
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 #page-title, 
@@ -89,6 +92,7 @@ header,
 
 #wish-section-title {
     font-size: 2em;
+    margin: 10px auto 15px auto;
 }
 
 #wish-list {
@@ -112,10 +116,14 @@ header,
 }
 
 #total-cost-container {
+    position: sticky;
+    bottom: 20px;
+    z-index: 100;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+    align-items: center; 
+    margin: auto auto 15px auto; 
+    width: fit-content;
 }
 
 footer {
