@@ -1,0 +1,162 @@
+#bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+body {
+    background-color: transparent !important;
+    margin: 0;
+    padding: 0;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    justify-content: flex-start !important;
+}
+
+#wish-form input:user-invalid {
+    border: 1px solid rgba(255, 75, 75, 0.479) !important;
+    background: rgba(250, 108, 108, 0.144) !important;
+    box-shadow: 0 0 10px rgba(255, 75, 75, 0.281);
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+header, 
+#wish-section {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#page-title, 
+#wish-section-title,
+#footer-title {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#wish-input,
+#wish-cost,
+#wish-priority {
+    padding: 10px;
+    border: none;
+    outline: none;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+#wish-form input::placeholder {
+    color: rgba(255, 255, 255, 0.781)
+}
+
+#wish-submit {
+    box-shadow: var(--glass-shadow-indicator);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+#wish-submit:active {
+    box-shadow: var(--glass-shadow-active);
+    transform: scale(0.96);
+}
+
+#wish-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+#page-title {
+    font-size: 2.5em;
+}
+
+#wish-section-title {
+    font-size: 2em;
+}
+
+#wish-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 297px));
+
+    gap: 20px;
+    padding: 0px;
+    margin: 20px 0;
+
+    list-style: none;
+    justify-content: center;
+}
+
+#wish-list li {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    word-break: break-word;
+}
+
+#total-cost-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px; 
+}
+
+#footer-title {
+    font-size: 1.2em;
+}
+
+:root {
+    --glass-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+        inset 1.8px 3px 0px -2px rgba(255, 255, 255, 0.27),
+        inset -2px -2px 0px -2px rgba(255, 255, 255, 0.24),
+        inset -3px -8px 1px -6px rgba(255, 255, 255, 0.18),
+        inset -0.3px -1px 4px 0px rgba(0, 0, 0, 0.24),
+        inset -1.5px 2.5px 0px -2px rgba(0, 0, 0, 0.4),
+        inset 0px 3px 4px -2px rgba(0, 0, 0, 0.4),
+        inset 2px -6.5px 1px -4px rgba(0, 0, 0, 0.2),
+        0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 6px 16px 0px rgba(0, 0, 0, 0.16);
+
+    --glass-shadow-active:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+        inset 1px 1px 0 0 rgba(255, 255, 255, 0.15),
+        inset -1px -1px 0 0 rgba(255, 255, 255, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.glass {
+    box-shadow: var(--glass-shadow);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    color: #ffffff;
+    padding: 10px 20px; 
+}
