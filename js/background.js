@@ -252,7 +252,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const scene = new THREE.Scene();
     const camera = new THREE.Camera();
 
-    renderer.setPixelRatio(0.75); 
+    renderer.setPixelRatio(0.50); // Adjust pixel ratio for performance
 
     const material = new THREE.ShaderMaterial({
         vertexShader: QUAD_VERTEX,
