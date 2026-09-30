@@ -1,30 +1,31 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 #bg-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    min-width: 100%;
-    min-height: 100%;
     z-index: -1;
     pointer-events: none;
     overflow: hidden;
 }
 
 body {
-    background-color: transparent !important;
+    background-color: transparent;
     margin: 0;
     padding: 0;
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: 100vh !important;
-    justify-content: flex-start !important;
-}
-
-#wish-form input:user-invalid {
-    border: 1px solid rgba(255, 75, 75, 0.479) !important;
-    background: rgba(250, 108, 108, 0.144) !important;
-    box-shadow: 0 0 10px rgba(255, 75, 75, 0.281);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    color: #ffffff;
 }
 
 main {
@@ -33,6 +34,49 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1px;
+}
+
+header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+#page-title {
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#wish-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 1px;
+    padding: 1px;
+}
+
+#wish-section-title {
+    width: fit-content;
+    margin: 10px auto 15px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#wish-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 1px;
+    border-radius: 10px;
 }
 
 #wish-form label {
@@ -47,43 +91,40 @@ main {
     border: 0;
 }
 
-header, 
-#wish-section {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-#page-title, 
-#wish-section-title,
-#footer-title {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 #wish-input,
 #wish-cost,
 #wish-priority {
-    padding: 10px;
-    border: none;
-    outline: none;
     width: 200px;
-    box-sizing: border-box;
+    padding: 12px;
+    margin: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    font-size: 1rem;
 }
 
 #wish-form input::placeholder {
-    color: rgba(255, 255, 255, 0.781)
+    color: rgba(255, 255, 255, 0.78);
+}
+
+#wish-form input:focus {
+    border-color: rgba(255, 255, 255, 0.8);
+    outline: none;
+}
+
+#wish-form input:user-invalid {
+    border-color: rgba(255, 75, 75, 0.6);
+    background: rgba(250, 108, 108, 0.14);
+    box-shadow: 0 0 10px rgba(255, 75, 75, 0.28);
 }
 
 #wish-submit {
-    box-shadow: var(--glass-shadow-indicator);
+    box-shadow: var(--glass-shadow);
     transition: all 0.2s ease;
     cursor: pointer;
+}
+
+#wish-submit:hover {
+    transform: translateY(-2px);
 }
 
 #wish-submit:active {
@@ -91,41 +132,38 @@ header,
     transform: scale(0.96);
 }
 
-#wish-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 12px;
-    box-sizing: border-box;
+#my-wishes {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
 }
 
-#page-title {
-    font-size: 2.5em;
-}
-
-#wish-section-title {
-    font-size: 2em;
-    margin: 10px auto 15px auto;
+#my-wishes h2 {
+    width: fit-content;
+    margin: 10px auto 20px;
+    text-align: center;
 }
 
 #wish-list {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 297px));
-
+    grid-template-columns: repeat(auto-fit, 300px);
     gap: 20px;
-    padding: 0px;
-    margin: 20px 0;
-
+    padding: 0;
+    margin: 0;
     list-style: none;
     justify-content: center;
 }
 
 #wish-list article {
-    width: 100%;
-    box-sizing: border-box;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
 }
 
 #total-cost-container {
@@ -134,9 +172,16 @@ header,
     z-index: 100;
     display: flex;
     justify-content: center;
-    align-items: center; 
-    margin: auto auto 15px auto; 
+    align-items: center;
     width: fit-content;
+    padding: 14px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+#total-cost {
+    margin: 0;
+    font-size: 1.8rem;
 }
 
 footer {
@@ -144,26 +189,37 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    padding-bottom: 20px; 
+    padding: 0px 0px 20px;
+    margin-top: 1px;
 }
 
 #footer-title {
-    font-size: 1.2em;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.wish--bought {
+    opacity: 0.6;
+}
+
+.wish--bought .wish-title {
+    text-decoration: line-through;
 }
 
 :root {
     --glass-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-        inset 1.8px 3px 0px -2px rgba(255, 255, 255, 0.27),
-        inset -2px -2px 0px -2px rgba(255, 255, 255, 0.24),
+        inset 1.8px 3px 0 -2px rgba(255, 255, 255, 0.27),
+        inset -2px -2px 0 -2px rgba(255, 255, 255, 0.24),
         inset -3px -8px 1px -6px rgba(255, 255, 255, 0.18),
-        inset -0.3px -1px 4px 0px rgba(0, 0, 0, 0.24),
-        inset -1.5px 2.5px 0px -2px rgba(0, 0, 0, 0.4),
-        inset 0px 3px 4px -2px rgba(0, 0, 0, 0.4),
+        inset -0.3px -1px 4px 0 rgba(0, 0, 0, 0.24),
+        inset -1.5px 2.5px 0 -2px rgba(0, 0, 0, 0.4),
+        inset 0 3px 4px -2px rgba(0, 0, 0, 0.4),
         inset 2px -6.5px 1px -4px rgba(0, 0, 0, 0.2),
-        0px 1px 5px 0px rgba(0, 0, 0, 0.2),
-        0px 6px 16px 0px rgba(0, 0, 0, 0.16);
+        0 1px 5px 0 rgba(0, 0, 0, 0.2),
+        0 6px 16px 0 rgba(0, 0, 0, 0.16);
 
     --glass-shadow-active:
         inset 0 0 0 1px rgba(255, 255, 255, 0.03),
@@ -179,5 +235,5 @@ footer {
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
     color: #ffffff;
-    padding: 10px 20px; 
+    padding: 10px 20px 15px;
 }

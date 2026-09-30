@@ -16,7 +16,8 @@ wishForm.addEventListener('submit', function(event) {
         id: Date.now(),
         title: titleValue,
         cost: costValue,
-        priority: priorityValue
+        priority: priorityValue,
+        bought: false
     };
 
     wishes.push(newWish);
@@ -43,11 +44,20 @@ function renderWishes() {
         const article = document.createElement('article');
         article.className = 'glass';
 
+        if (wish.bought) {
+            article.classList.add('wish--bought');
+        }
+
         article.innerHTML = `
-            <h3>${wish.title}</h3>
+            <h3 class="wish-title">${wish.title}</h3>
             <p>Ціна: ${wish.cost}$</p>
             <p>Пріоритет: ${wish.priority}</p>
         `;
+
+        article.addEventListener('click', function() {
+            wish.bought = !wish.bought;
+            renderWishes();
+        });
 
         wishItem.appendChild(article);
         wishList.appendChild(wishItem);
@@ -57,6 +67,14 @@ function renderWishes() {
 }
 
 function calculateTotalCost() {
-    const totalCost = wishes.reduce((sum, wish) => sum + wish.cost, 0);
-    document.getElementById('total-cost').textContent = `Загальна вартість: ${totalCost}$`;
+    const totalCost = wishes.reduce(function(sum, wish) {
+        if (!wish.bought) {
+            return sum + wish.cost;
+        }
+
+        return sum;
+    }, 0);
+
+    document.getElementById('total-cost').textContent =
+        `Загальна вартість: ${totalCost}$`;
 }
