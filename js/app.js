@@ -39,9 +39,17 @@ function renderWishes() {
 
     wishes.forEach(function(wish) {
         const wishItem = document.createElement('li');
-        wishItem.className = 'glass';
-        wishItem.id = `wish-element`;
-        wishItem.innerHTML = `<h3>${wish.title}</h3><p>Ціна: ${wish.cost}$</p><p>Пріоритет: ${wish.priority}</p>`;
+
+        const article = document.createElement('article');
+        article.className = 'glass';
+
+        article.innerHTML = `
+            <h3>${wish.title}</h3>
+            <p>Ціна: ${wish.cost}$</p>
+            <p>Пріоритет: ${wish.priority}</p>
+        `;
+
+        wishItem.appendChild(article);
         wishList.appendChild(wishItem);
     });
 

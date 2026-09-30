@@ -14,21 +14,60 @@
 
     <main>
         <section id="wish-section">
-            <h2 id="wish-section-title" class="glass">Додати нове бажання</h2>
+            <h2 id="wish-section-title" class="glass">
+                Додати нове бажання
+            </h2>
 
             <form id="wish-form">
-                <input type="text" id="wish-input" class="glass" placeholder="Опишіть своє бажання..." required>
-                <input type="number" id="wish-cost" class="glass" placeholder="Вартість" required>
-                <input type="number" id="wish-priority" class="glass" placeholder="Пріоритет (1-10)" min="1" max="10" required>
-                <button type="submit" id="wish-submit" class="glass">Додати</button>
-            </form>
+                <label for="wish-input">Назва бажання</label>
+                <input
+                    type="text"
+                    id="wish-input"
+                    class="glass"
+                    placeholder="Опишіть своє бажання"
+                    required
+                >
 
+                <label for="wish-cost">Вартість</label>
+                <input
+                    type="number"
+                    id="wish-cost"
+                    class="glass"
+                    placeholder="Вартість в $"
+                    required
+                >
+
+                <label for="wish-priority">Пріоритет</label>
+                <input
+                    type="number"
+                    id="wish-priority"
+                    class="glass"
+                    placeholder="Пріоритет (1-10)"
+                    min="1"
+                    max="10"
+                    required
+                >
+
+                <button type="submit" id="wish-submit" class="glass">
+                    Додати
+                </button>
+            </from>
+        </section>
+
+        <section id="my-wishes">
+
+            <h2 class="glass">Мої бажання</h2>
             <ul id="wish-list"></ul>
 
-            <div id="total-cost-container">
-                <p id="total-cost" class="glass">Загальна вартість: 0$</p>
-            </div>
         </section>
+
+        <aside id="total-cost-container">
+
+            <p id="total-cost" class="glass">
+                Загальна вартість: 0$
+            </p>
+
+        </aside>
     </main>
 
     <footer>
