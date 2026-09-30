@@ -12,4 +12,8 @@ logs/
 .vscode/
 .idea/
 
+<<<<<<< HEAD
 .zip
+=======
+.zip
+>>>>>>> 304b001 (Implement semantic HTML5 structure for wishlist)
