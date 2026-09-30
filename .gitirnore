@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+
+dist/
+build/
+out/
+
+*.log
+logs/
+
+.vscode/
+.idea/
