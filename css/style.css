@@ -45,10 +45,13 @@ body {
 main {
     flex: 1;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1px;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+    padding: 12px 20px;
 }
 
 .site-header {
@@ -281,7 +284,7 @@ main {
 }
 
 .wish--bought {
-    opacity: 0.62;
+    opacity: 0.6;
 }
 
 .wish--bought .wish-title {
@@ -364,8 +367,37 @@ main {
 }
 
 @media (min-width: 1024px) {
+    main {
+        grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr);
+        align-items: start;
+    }
+
+    .wish-section {
+        grid-column: 1 / -1;
+    }
+
+    .my-wishes {
+        grid-column: 1;
+        width: 100%;
+    }
+
     .wish-list {
         grid-template-columns: repeat(3, minmax(0, 300px));
+    }
+
+    .total-cost-container {
+        grid-column: 2;
+        grid-row: 2;
+        position: sticky;
+        top: 24px;
+        bottom: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 24px 0;
+    }
+
+    .total-cost {
+        text-align: center;
     }
 }
 
