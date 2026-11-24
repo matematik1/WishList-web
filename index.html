@@ -8,22 +8,22 @@
 </head>
 <body>
     <div id="bg-container"></div>
-    <header>
-        <h1 id="page-title" class="glass">Список бажань</h1>
+    <header class="site-header">
+        <h1 id="page-title" class="page-title glass">Список бажань</h1>
     </header>
 
     <main>
-        <section id="wish-section">
-            <h2 id="wish-section-title" class="glass">
+        <section id="wish-section" class="wish-section">
+            <h2 id="wish-section-title" class="section-title glass">
                 Додати нове бажання
             </h2>
 
-            <form id="wish-form">
+            <form id="wish-form" class="wish-form">
                 <label for="wish-input">Назва бажання</label>
                 <input
                     type="text"
                     id="wish-input"
-                    class="glass"
+                    class="wish-input glass"
                     placeholder="Опишіть своє бажання"
                     required
                 >
@@ -31,8 +31,10 @@
                 <label for="wish-cost">Вартість</label>
                 <input
                     type="number"
+                    min="0"
+                    step="0.01"
                     id="wish-cost"
-                    class="glass"
+                    class="wish-cost glass"
                     placeholder="Вартість в $"
                     required
                 >
@@ -41,37 +43,37 @@
                 <input
                     type="number"
                     id="wish-priority"
-                    class="glass"
+                    class="wish-priority glass"
                     placeholder="Пріоритет (1-10)"
                     min="1"
                     max="10"
                     required
                 >
 
-                <button type="submit" id="wish-submit" class="glass">
+                <button type="submit" id="wish-submit" class="wish-submit glass">
                     Додати
                 </button>
             </form>
         </section>
 
-        <section id="my-wishes">
+        <section id="my-wishes" class="my-wishes">
 
-            <h2 class="glass">Мої бажання</h2>
-            <ul id="wish-list"></ul>
+            <h2 class="wishes-title glass">Мої бажання</h2>
+            <ul id="wish-list" class="wish-list"></ul>
 
         </section>
 
-        <aside id="total-cost-container">
+        <aside id="total-cost-container" class="total-cost-container">
 
-            <p id="total-cost" class="glass">
+            <p id="total-cost" class="total-cost glass">
                 Загальна вартість: 0$
             </p>
 
         </aside>
     </main>
 
-    <footer>
-        <p id="footer-title" class="glass">&copy; 2026 Список бажань</p>
+    <footer class="site-footer">
+        <p id="footer-title" class="footer-title glass">&copy; 2026 Список бажань</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

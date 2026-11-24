@@ -2,18 +2,28 @@
 .env.*
 !.env.example
 
+node_modules/
+
 dist/
 build/
 out/
+coverage/
 
 *.log
 logs/
 
 .vscode/
 .idea/
+*.swp
+*.swo
 
-<<<<<<< HEAD
-.zip
-=======
-.zip
->>>>>>> 304b001 (Implement semantic HTML5 structure for wishlist)
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+*.bak
+*.tmp
+*~

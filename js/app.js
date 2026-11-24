@@ -12,6 +12,20 @@ wishForm.addEventListener('submit', function(event) {
     const costValue = Number(document.getElementById('wish-cost').value);
     const priorityValue = Number(document.getElementById('wish-priority').value);
 
+    if (!titleValue) {
+        wishInput.setCustomValidity('Введіть назву бажання.');
+        wishInput.reportValidity();
+        wishInput.setCustomValidity('');
+        return;
+    }
+
+    if (!Number.isFinite(costValue) || costValue < 0) {
+        wishCostInput.setCustomValidity('Вартість не може бути від’ємною.');
+        wishCostInput.reportValidity();
+        wishCostInput.setCustomValidity('');
+        return;
+    }
+
     const newWish = {
         id: Date.now(),
         title: titleValue,
@@ -42,17 +56,23 @@ function renderWishes() {
         const wishItem = document.createElement('li');
 
         const article = document.createElement('article');
-        article.className = 'glass';
+        article.className = 'wish-card glass';
 
         if (wish.bought) {
             article.classList.add('wish--bought');
         }
 
-        article.innerHTML = `
-            <h3 class="wish-title">${wish.title}</h3>
-            <p>Ціна: ${wish.cost}$</p>
-            <p>Пріоритет: ${wish.priority}</p>
-        `;
+        const title = document.createElement('h3');
+        title.className = 'wish-title';
+        title.textContent = wish.title;
+
+        const cost = document.createElement('p');
+        cost.textContent = `Ціна: ${wish.cost}$`;
+
+        const priority = document.createElement('p');
+        priority.textContent = `Пріоритет: ${wish.priority}`;
+
+        article.append(title, cost, priority);
 
         article.addEventListener('click', function() {
             wish.bought = !wish.bought;
